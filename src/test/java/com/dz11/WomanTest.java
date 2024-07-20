@@ -2,6 +2,7 @@ package com.dz11;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.annotations.DataProvider;
 
 public class WomanTest {
     private static final String DEFAULT_MAN_FIRST_NAME = "Bob";
@@ -45,11 +46,16 @@ public class WomanTest {
         Assert.assertEquals(woman.getHusband().getFirstName(), DEFAULT_MAN_FIRST_NAME);
     }
 
-    @Test
-    public void testIsRetired() {
+    @DataProvider(name = "is retired")
+    public Object[][] generateTestDataIsRetired(){
+        return new Object[][] {{66, true}, {60, false}};
+    }
+
+    @Test(dataProvider = "is retired")
+    public void testIsRetired(int age, boolean expectedResult) {
         Woman woman = this.createDefaultWoman();
-        woman.setAge(66);
-        Assert.assertTrue(woman.isRetired());
+        woman.setAge(age);
+        Assert.assertEquals(woman.isRetired(), expectedResult);
     }
 
     @Test

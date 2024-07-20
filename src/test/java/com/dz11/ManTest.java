@@ -1,6 +1,7 @@
 package com.dz11;
 
 import org.testng.annotations.Test;
+import org.testng.annotations.Parameters;
 import org.testng.Assert;
 
 public class ManTest {
@@ -46,9 +47,10 @@ public class ManTest {
     }
 
     @Test
-    public void testIsRetired() {
+    @Parameters({"age", "expectedResult"})
+    public void testIsRetired(int age, boolean expectedResult) {
         Man man = this.createDefaultMan();
-        man.setAge(100);
-        Assert.assertTrue(man.isRetired());
+        man.setAge(age);
+        Assert.assertEquals(man.isRetired(), expectedResult);
     }
 }
