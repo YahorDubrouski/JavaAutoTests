@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All">
+    <test name="Man">
+        <parameter name="age" value="100" />
+        <parameter name="expectedResult" value="true" />
+        <classes>
+            <class name="com.dz11.ManTest" />
+        </classes>
+    </test>
+    <test name="Woman">
+        <classes>
+            <class name="com.dz11.WomanTest" />
+        </classes>
+    </test>
+</suite>

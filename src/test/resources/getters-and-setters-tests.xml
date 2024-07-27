@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Getters and setters">
+    <test name="Man and Woman">
+        <classes>
+            <class name="com.dz11.ManTest">
+                <methods>
+                    <include name="testSetAndGetWife"/>
+                    <exclude name="testIsRetired"/>
+                </methods>
+            </class>
+            <class name="com.dz11.WomanTest">
+                <methods>
+                    <include name="testSetAndGetHusband"/>
+                    <exclude name="testIsRetired"/>
+                    <exclude name="testRegisterPartnership"/>
+                    <exclude name="testDeregisterPartnership"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
